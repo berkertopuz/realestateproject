@@ -8,6 +8,10 @@ import { FilterFormComponent } from './filter-form/filter-form.component';
 import {FormsModule} from '@angular/forms';
 import { CardComponent } from './card/card.component';
 import { FilteredHouseCardComponent } from './filtered-house-card/filtered-house-card.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { HowItWorksComponent } from './how-it-works/how-it-works.component';
+import {appRoutingModule} from './app.routing';
+import { SearchPageComponent } from './search-page/search-page.component';
 
 
 @NgModule({
@@ -16,13 +20,17 @@ import { FilteredHouseCardComponent } from './filtered-house-card/filtered-house
     MapComponent,
     FilterFormComponent,
     CardComponent,
-    FilteredHouseCardComponent
+    FilteredHouseCardComponent,
+    AboutUsComponent,
+    HowItWorksComponent,
+    SearchPageComponent
   ],
   imports: [
     BrowserModule,
     GoogleMapsModule,
     FormsModule,
     HttpClientModule,
+    appRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,7 +13,7 @@ export class SuggestedHouse{
   public esyali: string;
   public floor: string;
   public heating: string;
-  public kat: string;
+  public kat: string;//
   public kullanimdurumu: string;
   public lat: string;
   public listingID: number;

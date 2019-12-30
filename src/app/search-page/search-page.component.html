@@ -1,0 +1,26 @@
+<!--<div style="height: 80px; background:#e25098; margin-bottom: -4px; justify-content: center; text-align: center;">-->
+<!--  <p style="color: beige; padding-top:17px; font-size: 30px; font-family: monospace" class="font-weight-bold">CloseUp</p>-->
+<!--</div>-->
+<div style="display: flex; flex-direction: column; flex: 1;">
+  <div style="display: flex; flex-direction: row; flex: 3">
+    <div style="flex:3">
+      <app-filter-form></app-filter-form>
+    </div>
+    <div style="display: flex; flex-direction:column">
+      <div style="display:flex; flex:6;">
+        <app-map></app-map>
+      </div>
+      <div style="flex:3; margin-top:10px;">
+        <div *ngIf="mapService.recommendedHouse !== undefined && mapService.recommendedHouse !== null">
+          <app-card></app-card>
+        </div>
+        <div *ngIf="!!mapService.filteredHouse">
+          <app-filtered-house-card></app-filtered-house-card>
+        </div>
+        <div style="text-align: center" *ngIf="mapService.filteredHouse==null && !!mapService.errorMessage">
+          <span style="text-align: center">Aradığınız kriterlere uygun ev bulunamadı. </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

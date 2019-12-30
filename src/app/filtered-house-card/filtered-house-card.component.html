@@ -1,6 +1,34 @@
-<div *ngFor="let item of mapService.filteredHouse" class="card">
+<div *ngFor="let item of mapService.filteredHouse"  class="card" style="margin-left:20px; margin-right: 20px; background-color: #343a40">
+  <a href="{{item.Ilanlinki}}" target="_blank">
   <div class="container">
     <h4><b>{{item.Ilanbasligi}}</b></h4>
-    <p>{{item.price*1000}}</p>
+    <div style="display: flex; flex-direction: row;">
+      <div style="display: flex; flex:1"><img width="80%" height="80%" style="margin-top:10px" alt="" src="assets/mock-ev.jpg"/> </div>
+    <div style="display: flex; flex-direction: column; flex: 1">
+      <span class="">Fiyat</span>
+      <p>{{item.price*1000+" TL"}}</p>
+      <span class="">Metrekare</span>
+      <p>{{item.squaremeter}}</p>
+      <span class="">Oda sayısı</span>
+      <p>{{item.numberofrooms}}</p>
+    </div>
+    <div style="display: flex; flex-direction: column; flex: 1;">
+      <span class="">Eşyalı</span>
+      <p>{{item.esyali}}</p>
+      <span class="">Bina yaşı</span>
+      <p>{{item.age}}</p>
+      <span class="">Balkon</span>
+      <p>{{item.balcony}}</p>
+    </div>
+    <div style="display: flex; flex-direction: column; flex: 1;">
+      <span class="">Site içerisinde</span>
+      <p>{{item.SiteIcerisinde}}</p>
+      <span class="">Isınma Tipi</span>
+      <p>{{item.heating}}</p>
+      <span class="">Kat sayısı</span>
+      <p>{{item.numberoffloors}}</p>
+    </div>
+    </div>
   </div>
+  </a>
 </div>

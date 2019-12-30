@@ -1,6 +1,7 @@
-<div style="margin-top:80px;">
+<div style="margin-top:-13px">
 <google-map height="350px"
-            width="1784px"
+            width="1544px"
+            style="margin-left: 250px"
             [center]="center"
             [zoom]="zoom"
             (mapClick)="addMarker($event)"
@@ -11,7 +12,4 @@
               [options]="markerOptions"
               (mapClick)="openInfoWindow(marker)"></map-marker>
 </google-map>
-
-<div>Latitude: {{display?.lat}}</div>
-<div>Longitude: {{display?.lng}}</div>
 </div>

@@ -15,6 +15,7 @@ export class MapService {
   public allFilters: FilterModel = new FilterModel();
   public recommendedHouse: SuggestedHouse;
   public filteredHouse: SuggestedHouse[];
+  public errorMessage: string;
   constructor( private http: HttpClient) { }
 
   getFilteredHouse(allFilters: FilterModel) {
@@ -33,6 +34,7 @@ export class MapService {
       console.log(data);
       this.recommendedHouse = (data.body.recomended_house);
       this.filteredHouse = data.body.filter_houses;
+      this.errorMessage = data.body.msg;
       console.log(this.filteredHouse[0]);
     });
   }

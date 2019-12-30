@@ -1,98 +1,129 @@
-<form>
-  <div class="">
-      <input type="number" name="squaremeter_min" placeholder="Min Squaremeter" [(ngModel)]="squaremeter_min">
-      <input type="number" name="squaremeter_max" placeholder="Max Squaremeter" [(ngModel)]="squaremeter_max">
-      <input type="number" name="price_min" placeholder="Min Price" [(ngModel)]="price_min">
-      <input type="number" name="price_max" placeholder="Max Price"  [(ngModel)]="price_max">
-      <input type="number" name="max_duration" placeholder="Max Duration" [(ngModel)]="max_duration">
+<div style="display: flex; flex-direction: row; flex:1; margin-top:-1px; padding-top:1px;">
+  <div>
+    <form>
+      <div class="container-fluid formBg">
+        <div class="filterItem">
+          <span class="filterTitle">Minimum Metrekare:</span>
+          <input class="inputArea" type="number" name="squaremeter_min" placeholder="Min. Metrekare" style="border: 1px solid rgba(0,0,0,.5);
+" [(ngModel)]="squaremeter_min">
+        </div>
+        <div class="filterItem">
+          <span class="filterTitle">Maksimum Metrekare:</span>
+          <input class="inputArea" type="number" name="squaremeter_max" placeholder="Max. Metrekare" [(ngModel)]="squaremeter_max">
+        </div>
+        <div class="filterItem">
+          <span class="filterTitle">Minimum Fiyat(TL):</span>
+          <input class="inputArea" type="number" name="price_min" placeholder="Min. Fiyat" [(ngModel)]="price_min">
+        </div>
+
+        <div class="filterItem">
+          <span class="filterTitle">Maksimum Fiyat(TL):</span>
+          <input class="inputArea" type="number" name="price_max" placeholder="Max. Fiyat"  [(ngModel)]="price_max">
+        </div>
+        <div class="filterItem">
+          <span class="filterTitle">Maksimum Süre(dk):</span>
+          <input class="inputArea" type="number" name="max_duration" placeholder="Max. Süre" [(ngModel)]="max_duration">
+        </div>
+
+
+
+        <div class="filterItem" >
+          <span class="filterTitle" >Oda Sayısı:</span>
+          <select class="selectArea" [(ngModel)]="numberofrooms" [ngModelOptions]="{standalone: true}">
+            <option value="1+1">1+1</option>
+            <option value="2+1">2+1</option>
+            <option value="3+1">3+1</option>
+            <option value="4+1">4+1</option>
+            <option value="null">Fark etmez</option>
+          </select>
+        </div>
+
+        <div class="filterItem" >
+          <span class="filterTitle" >Isıtma Tipi:</span>
+            <select  class="selectArea" [(ngModel)]="heating" [ngModelOptions]="{standalone: true}">
+            <option value="Doğalgaz (Kombi)">Doğalgaz (Kombi)</option>
+            <option value="Merkezi">Merkezi</option>
+            <option value="Kat Kaloriferi">Kat Kaloriferi</option>
+            <option value="Soba">Soba</option>
+            <option value="Yerden Isitma">Yerden Isitma</option>
+            <option value="null">Fark etmez</option>
+          </select>
+        </div>
+
+        <div class="filterItem" >
+          <span class="filterTitle" >Bina Yaşı:</span>
+          <select class="selectArea" [(ngModel)]="age" [ngModelOptions]="{standalone: true}">
+            <option value="0-15 arası">0-15 arası</option>
+            <option value="16-30 arası">16-30 arası</option>
+            <option value="30 ve üzeri">30 ve üzeri</option>
+            <option value="null">Fark etmez</option>
+          </select>
+        </div>
+
+        <div class="filterItem" >
+          <span class="filterTitle" >Balkon:</span>
+          <select class="selectArea" [(ngModel)]="balcony" [ngModelOptions]="{standalone: true}">
+            <option value="Var">Var</option>
+            <option value="Yok">Yok</option>
+            <option value="null">Fark etmez</option>
+          </select>
+        </div>
+
+        <div class="filterItem" >
+          <span class="filterTitle">Eşyalı:</span>
+          <select  class="selectArea" [(ngModel)]="esyali" [ngModelOptions]="{standalone: true}">
+            <option value="Evet">Evet</option>
+            <option value="Hayır">Hayır</option>
+            <option value="null">Fark etmez</option>
+          </select>
+        </div>
+
+        <div class="filterItem" >
+          <span class="filterTitle" >Site İçerisinde:</span>
+          <select class="selectArea" [(ngModel)]="SiteIcerisinde" [ngModelOptions]="{standalone: true}">
+            <option value="Evet">Evet</option>
+            <option value="Hayır">Hayır</option>
+            <option value="null">Fark etmez</option>
+          </select>
+        </div>
+        <div class="filterItem" >
+          <span class="filterTitle" >Kat:</span>
+          <select class="selectArea" [(ngModel)]="kat"  [ngModelOptions]="{standalone: true}">
+            <option value="1-29">1-29</option>
+            <option value="30 ve üzeri">30 ve üzeri</option>
+            <option value="Bahçe Katı">Bahçe Katı</option>
+            <option value="Çatı Katı">Çatı Katı</option>
+            <option value="Kot 1">Kot 1</option>
+            <option value="Müstakil">Müstakil</option>
+            <option value="Yüksek Giriş">Yüksek Giriş</option>
+            <option value="null">Fark etmez</option>
+          </select>
+        </div>
+
+
+          <div class="filterItem">
+            <span class="filterTitle"><span>Zaman</span> <span>Fiyat</span></span>
+            <input class="inputArea" type="range" min=-9 max=9 value=0 class="slider" id="myRange1" [(ngModel)]="time_to_price" [ngModelOptions]="{standalone: true}">
+            <span class="spanArea">{{(time_to_price)}}</span>
+          </div>
+
+
+          <div class="filterItem" style="display: flex; flex-direction:column">
+            <span class="filterTitle" ><span>Fiyat</span><span>Metrekare</span></span>
+            <input class="inputArea" type="range" min=-9 max=9 value=0 class="slider" id="myRange2" [(ngModel)]="price_to_metre" [ngModelOptions]="{standalone: true}">
+            <span class="spanArea">{{price_to_metre}}</span>
+          </div>
+
+
+          <div class="filterItem" style="display: flex; flex-direction:column">
+            <span class="filterTitle"><span>Metrekare</span><span>Zaman</span></span>
+            <input class="inputArea" type="range" min=-9 max=9 value=0 class="slider" id="myRange3" [(ngModel)]="metre_to_time" [ngModelOptions]="{standalone: true}">
+            <span class="spanArea">{{metre_to_time}}</span>
+          </div>
+
+        <input class="buttonArea" type="button" value="Ara" (click)="this.setValues()">
+      </div>
+    </form>
   </div>
 
-  <div class="">
-      <select [(ngModel)]="numberofrooms" [ngModelOptions]="{standalone: true}">
-        <option selected="selected">Select Your Beverage</option>
-        <option value="1+1">1+1</option>
-        <option value="2+1">2+1</option>
-        <option value="3+1">3+1</option>
-        <option value="4+1">4+1</option>
-        <option value="null">Fark etmez</option>
-      </select>
-
-      <select [(ngModel)]="heating" [ngModelOptions]="{standalone: true}">
-        <option value="Doğalgaz (Kombi)">Doğalgaz (Kombi)</option>
-        <option value="Merkezi">Merkezi</option>
-        <option value="Kat Kaloriferi">Kat Kaloriferi</option>
-        <option value="Soba">Soba</option>
-        <option value="Yerden Isitma">Yerden Isitma</option>
-        <option value="null">Fark etmez</option>
-      </select>
-
-      <select [(ngModel)]="age" [ngModelOptions]="{standalone: true}">
-        <option value="0-15 arası">0-15 arası</option>
-        <option value="16-30 arası">16-30 arası</option>
-        <option value="30 ve üzeri">30 ve üzeri</option>
-        <option value="null">Fark etmez</option>
-      </select>
-
-      <select [(ngModel)]="balcony" [ngModelOptions]="{standalone: true}">
-        <option value="Var">Var</option>
-        <option value="Yok">Yok</option>
-        <option value="null">Fark etmez</option>
-      </select>
-
-      <select [(ngModel)]="esyali" [ngModelOptions]="{standalone: true}">
-        <option value="Evet">Evet</option>
-        <option value="Hayır">Hayır</option>
-        <option value="null">Fark etmez</option>
-      </select>
-
-      <select [(ngModel)]="SiteIcerisinde" [ngModelOptions]="{standalone: true}">
-        <option value="Evet">Evet</option>
-        <option value="Hayır">Hayır</option>
-        <option value="null">Fark etmez</option>
-      </select>
-
-      <select [(ngModel)]="kat"  [ngModelOptions]="{standalone: true}">
-        <option value="1-29">1-29</option>
-        <option value="30 ve üzeri">30 ve üzeri</option>
-        <option value="Bahçe Katı">Bahçe Katı</option>
-        <option value="Çatı Katı">Çatı Katı</option>
-        <option value="Kot 1">Kot 1</option>
-        <option value="Müstakil">Müstakil</option>
-        <option value="Yüksek Giriş">Yüksek Giriş</option>
-        <option value="null">Fark etmez</option>
-        </select>
-  </div>
-
-  <div class="slidecontainer">
-    <span>Time to Price</span>
-    <input type="range" min=-9 max=9 value=0 class="slider" id="myRange1" [(ngModel)]="time_to_price" [ngModelOptions]="{standalone: true}">
-  </div>
-  {{time_to_price}}
-
-  <div class="slidecontainer">
-    <span>Price to Metre</span>
-    <input type="range" min=-9 max=9 value=0 class="slider" id="myRange2" [(ngModel)]="price_to_metre" [ngModelOptions]="{standalone: true}">
-  </div>
-  {{price_to_metre}}
-
-  <div class="slidecontainer">
-    <span>Metre to Time</span>
-    <input type="range" min=-9 max=9 value=0 class="slider" id="myRange3" [(ngModel)]="metre_to_time" [ngModelOptions]="{standalone: true}">
-  </div>
-  {{metre_to_time}}
-
-  <input type="number" name="metre_to_time" placeholder="Min metre_to_time" [(ngModel)]="metre_to_time">
-  <input type="number" name="price_to_metre" placeholder="Max price_to_metre" [(ngModel)]="price_to_metre">
-  <input type="number" name="time_to_price" placeholder="Min time_to_price" [(ngModel)]="time_to_price">
-
-  <input type="button" value="Search" (click)="this.setValues()">
-
-
-</form>
-
-<div *ngIf="mapService.recommendedHouse != undefined && mapService.recommendedHouse != null">
-  <app-card></app-card>
-</div>
-<div *ngIf="!!mapService.filteredHouse">
-  <app-filtered-house-card></app-filtered-house-card>
 </div>

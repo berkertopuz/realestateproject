@@ -33,20 +33,69 @@ export class FilterFormComponent implements OnInit {
 
   setValues() {
     this.mapService.setSquareMeterMin(this.squaremeter_min);
-    this.mapService.setNumberOfRooms(this.numberofrooms);
-    this.mapService.setTimeToPrice(this.time_to_price);
     this.mapService.setSquareMeterMax(this.squaremeter_max);
     this.mapService.setPriceMin(this.price_min);
     this.mapService.setPriceMax(this.price_max);
+
+    if(this.numberofrooms=="null"){
+      this.mapService.setNumberOfRooms(null);
+    } else {
+      this.mapService.setNumberOfRooms(this.numberofrooms);
+    }
+
+    if (this.heating=="null"){
+      this.mapService.setHeating(null);
+    } else {
     this.mapService.setHeating(this.heating);
-    this.mapService.setAge(this.age);
-    this.mapService.setBalcony(this.balcony);
-    this.mapService.setEsyali(this.esyali);
-    this.mapService.setSiteIcerisinde(this.SiteIcerisinde);
-    this.mapService.setKat(this.kat);
+    }
+
+    if (this.age=="null"){
+      this.mapService.setAge(null);
+    } else {
+      this.mapService.setAge(null);
+    }
+
+    if (this.balcony=="null") {
+      this.mapService.setBalcony(null);
+    } else {
+      this.mapService.setBalcony(this.balcony);
+    }
+
+    if (this.esyali=="null") {
+      this.mapService.setEsyali(null);
+    } else {
+      this.mapService.setEsyali(this.esyali);
+    }
+
+    if (this.SiteIcerisinde=="null") {
+      this.mapService.setSiteIcerisinde(null);
+    } else {
+      this.mapService.setSiteIcerisinde(this.SiteIcerisinde);
+    }
+
+    if (this.kat=="null") {
+      this.mapService.setKat(null);
+    } else {
+      this.mapService.setKat(this.kat);
+    }
+
     this.mapService.setMaxDuration(this.max_duration);
-    this.mapService.setPriceToMetre(this.price_to_metre);
-    this.mapService.setMetreToTime(this.metre_to_time);
+    if (this.price_to_metre<0){
+      this.mapService.setPriceToMetre(1/Math.abs(this.price_to_metre));
+    } else {
+      this.mapService.setPriceToMetre(this.price_to_metre);
+    }
+    if(this.metre_to_time<0){
+      this.mapService.setMetreToTime(1/Math.abs(this.metre_to_time));
+    } else {
+      this.mapService.setMetreToTime(this.metre_to_time);
+    }
+    if(this.time_to_price<0){
+      this.mapService.setTimeToPrice(1/Math.abs(this.time_to_price));
+    } else {
+      this.mapService.setTimeToPrice(this.time_to_price);
+    }
+
     this.send();
   }
 
